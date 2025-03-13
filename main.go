@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/stupendoussuperpowers/i18n-go.git/pkg/i18n"
+	"github.com/stupendoussuperpowers/i18n-go/pkg/i18n"
 	"os"
 	"strconv"
 )

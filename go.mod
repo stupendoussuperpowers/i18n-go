@@ -1,3 +1,3 @@
-module github.com/stupendoussuperpowers/i18n-go.git
+module github.com/stupendoussuperpowers/i18n-go
 
 go 1.24.0
