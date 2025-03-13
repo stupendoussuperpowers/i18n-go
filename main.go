@@ -10,7 +10,7 @@ import (
 type puzzleFunction func(*os.File) string
 
 func main() {
-	funcs := []puzzleFunction{i18n.PuzzleOne, i18n.PuzzleTwo, i18n.PuzzleThree, i18n.PuzzleFour, i18n.PuzzleFive}
+	funcs := []puzzleFunction{i18n.PuzzleOne, i18n.PuzzleTwo, i18n.PuzzleThree, i18n.PuzzleFour, i18n.PuzzleFive, i18n.PuzzleSix}
 
 	puzzNumber, _ := strconv.Atoi(os.Args[1])
 
