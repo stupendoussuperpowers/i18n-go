@@ -7,14 +7,12 @@ import (
 	"time"
 )
 
-func PuzzleTwo(file *os.File) string {
-
+func (p *Puzzles) Puzzle2(file *os.File) string {
 	recordings := make(map[string]int)
 
 	scanner := bufio.NewScanner(file)
 
 	for scanner.Scan() {
-
 		to, err := time.Parse(time.RFC3339, scanner.Text())
 
 		if err != nil {

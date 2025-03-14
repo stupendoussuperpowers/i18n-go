@@ -36,7 +36,6 @@ func extract(input string) (int, int, byte) {
 }
 
 func match(input string, word string) bool {
-
 	runes, pos, ch := extract(input)
 
 	wordRunes := []rune(word)
@@ -52,8 +51,7 @@ func match(input string, word string) bool {
 	return true
 }
 
-func PuzzleSix(file *os.File) string {
-
+func (p *Puzzles) Puzzle6(file *os.File) string {
 	scanner := bufio.NewScanner(file)
 
 	wordList := []string{}

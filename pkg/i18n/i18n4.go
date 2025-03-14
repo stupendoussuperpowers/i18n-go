@@ -11,7 +11,6 @@ import (
 )
 
 func sanerSplit(data []byte, atEOF bool) (advance int, token []byte, err error) {
-
 	if atEOF && len(data) == 0 {
 		return 0, nil, nil
 	}
@@ -28,7 +27,6 @@ func sanerSplit(data []byte, atEOF bool) (advance int, token []byte, err error) 
 }
 
 func returnMinDiff(tz string, tm string, tz2 string, tm2 string) float64 {
-
 	location, err := time.LoadLocation(tz)
 	if err != nil {
 		fmt.Println("Error", err)
@@ -59,11 +57,9 @@ func returnMinDiff(tz string, tm string, tz2 string, tm2 string) float64 {
 	}
 
 	return u.Sub(t).Minutes()
-
 }
 
-func PuzzleFour(file *os.File) string {
-
+func (p *Puzzles) Puzzle4(file *os.File) string {
 	travelt := 0.0
 
 	scanner := bufio.NewScanner(file)

@@ -7,8 +7,7 @@ import (
 	"unicode/utf8"
 )
 
-func PuzzleOne(file *os.File) string {
-
+func (p *Puzzles) Puzzle1(file *os.File) string {
 	finans := 0
 
 	scanner := bufio.NewScanner(file)
@@ -18,7 +17,6 @@ func PuzzleOne(file *os.File) string {
 
 		ans := 0
 
-		//		fmt.Println("Line:", line)
 		length := len(line)
 		runes := utf8.RuneCountInString(line)
 
@@ -31,7 +29,6 @@ func PuzzleOne(file *os.File) string {
 		}
 
 		finans += ans
-
 	}
 
 	return strconv.Itoa(finans)

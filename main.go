@@ -4,14 +4,13 @@ import (
 	"fmt"
 	"github.com/stupendoussuperpowers/i18n-go/pkg/i18n"
 	"os"
+	"reflect"
 	"strconv"
 )
 
 type puzzleFunction func(*os.File) string
 
 func main() {
-	funcs := []puzzleFunction{i18n.PuzzleOne, i18n.PuzzleTwo, i18n.PuzzleThree, i18n.PuzzleFour, i18n.PuzzleFive, i18n.PuzzleSix}
-
 	puzzNumber, _ := strconv.Atoi(os.Args[1])
 
 	filepath := "tests/input%d.txt"
@@ -22,12 +21,6 @@ func main() {
 	if puzzNumber <= 0 {
 		fmt.Println("Puzzle number ", puzzNumber, " requires going back in time :(")
 		os.Exit(1)
-
-	}
-
-	if puzzNumber > len(funcs) {
-		fmt.Println("Puzzle number ", puzzNumber, " isn't yet solved!")
-		os.Exit(1)
 	}
 
 	file, err := os.Open(fmt.Sprintf(filepath, puzzNumber))
@@ -35,12 +28,18 @@ func main() {
 		fmt.Printf("Input file not found. @ tests/input%d.txt", puzzNumber)
 		os.Exit(1)
 	}
-
 	defer file.Close()
 
-	// os.Stdin = file
+	puzzlesInstance := &i18n.Puzzles{}
 
-	ret := funcs[puzzNumber-1](file)
+	method := reflect.ValueOf(puzzlesInstance).MethodByName(fmt.Sprintf("Puzzle%d", puzzNumber))
+
+	if !method.IsValid() {
+		fmt.Println("Puzzle number", puzzNumber, " isn't solved yet!")
+		os.Exit(1)
+	}
+
+	ret := method.Interface().(func(*os.File) string)(file)
 
 	fmt.Println(ret)
 }

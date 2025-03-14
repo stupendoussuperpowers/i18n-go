@@ -8,8 +8,7 @@ import (
 	"unicode/utf8"
 )
 
-func PuzzleThree(file *os.File) string {
-
+func (p *Puzzles) Puzzle3(file *os.File) string {
 	scanner := bufio.NewScanner(file)
 
 	count := 0

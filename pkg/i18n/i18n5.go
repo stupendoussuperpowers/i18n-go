@@ -6,8 +6,7 @@ import (
 	"strconv"
 )
 
-func PuzzleFive(file *os.File) string {
-
+func (p *Puzzles) Puzzle5(file *os.File) string {
 	scanner := bufio.NewScanner(file)
 
 	start := 0
