@@ -13,6 +13,12 @@ default() {
 }
 
 add() {
+
+	if test -f "pkg/i18n/i18n${1}.go"; then 
+		echo "Puzzle file already exists."
+		exit 1
+	fi
+
 	cat <<EOF > "pkg/i18n/i18n${1}.go"
 package i18n
 

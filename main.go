@@ -18,14 +18,9 @@ func main() {
 		filepath = "tests/test-input%d.txt"
 	}
 
-	if puzzNumber <= 0 {
-		fmt.Println("Puzzle number ", puzzNumber, " requires going back in time :(")
-		os.Exit(1)
-	}
-
 	file, err := os.Open(fmt.Sprintf(filepath, puzzNumber))
 	if err != nil {
-		fmt.Printf("Input file not found. @ tests/input%d.txt", puzzNumber)
+		fmt.Printf("Input file not found. @ %s", filepath)
 		os.Exit(1)
 	}
 	defer file.Close()
